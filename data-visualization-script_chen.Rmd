@@ -4,6 +4,9 @@ author: "Chen Peng"
 date: "2026-10-23`"
 output: html_document
 ---
+
+###JK: Good work! Nothing to revise :) ###
+
 ## Hypothesis
 
 H1: Sex at birth (categorical IV) may predict gender equality attitudes (composite variable). 
