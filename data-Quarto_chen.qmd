@@ -26,6 +26,11 @@ h2Data <- read.csv("data/processed_data/practice_h2.csv")
 
 Sex at birth may predict gender equality attitudes. 
 
+###JK: The report runs; describe gender_equa as the attitude composite used in your analysis. ###
+# It is the mean of three reverse-coded gender-equality items on a 1-7 scale. Use "Gender equality attitude score" in the description, caption, and y-axis label.
+# Love_how_much_1 ranges from 0 to 100, so update its lower endpoint in the H2 description as well.
+###  End of comment ###
+
 ### Variables and descriptive statistics
 
 - **Sex at birth (`Sex_birth`):** A categorical variable with three groups: Male, Female, and Intersex.
