@@ -10,6 +10,8 @@ execute:
   echo: true
 ---
 
+###JK: Good work! Nothing to revise :) ###
+
 ```{r}
 #| label: load-data
 #| include: false
@@ -26,34 +28,36 @@ h2Data <- read.csv("data/processed_data/practice_h2.csv")
 
 Sex at birth may predict gender equality attitudes. 
 
+
+
 ### Variables and descriptive statistics
 
 - **Sex at birth (`Sex_birth`):** A categorical variable with three groups: Male, Female, and Intersex.
-- **Gender equality attitudes (`gender_equa`):** Points allocated to gender equality. Higher values indicate greater equality.
+- **Gender equality attitudes (`gender_equa`):** Mean of available responses to three reverse-coded gender-equality items, ranging from 1 to 7. Higher scores indicate greater support for gender equality.
 
 ```{r}
 #| label: h1-descriptives
 # Count respondents in each group.
 table(h1Data$Sex_birth)
 
-# Summarize gender equality points separately for each group.
+# Summarize gender equality attitude scores separately for each group.
 by(h1Data$gender_equa, h1Data$Sex_birth, summary)
 ```
 
 ### Graph
 
-@fig-gendequa shows the distribution of points by sex at birth. The half-violin shows the shape of the distribution, the box summarizes the median and quartiles, and the dots represent individual responses.
+@fig-gendequa shows the distribution of gender equality attitude scores by sex at birth. The half-violin shows the shape of the distribution, the box summarizes the median and quartiles, and the dots represent individual responses.
 
 ```{r}
 #| label: fig-gendequa
-#| fig-cap: "Points allocated to gender equality, by sex at birth."
+#| fig-cap: "Gender equality attitude scores, by sex at birth."
 #| fig-width: 8
 #| fig-height: 5
 
 ggplot(h1Data, aes(x = Sex_birth, y = gender_equa,
                    fill = Sex_birth)) +
   geom_rain(alpha = 0.5, point.args = list(alpha = 0.04, size = 0.6)) +
-  labs(x = "Sex at birth", y = "Points allocated to gender equality") +
+  labs(x = "Sex at birth", y = "Gender equality attitude score (1-7)") +
   theme_minimal() +
   theme(legend.position = "none")
 ```
@@ -64,7 +68,7 @@ Intensity of love feelings may negatively predict the willingness to marry witho
 
 ### Variables and descriptive statistics
 
-- **Intensity of love feelings (`Love_how_much_1`):** A single item about how much one loves partner, applicable to only those in a relationship. Responses range from 1 to 100.
+- **Intensity of love feelings (`Love_how_much_1`):** A single item about how much one loves partner, applicable to only those in a relationship. Responses range from 0 to 100.
 - **Willingness to marry without love (`Love_would_you_marry_1`):**  higher scores indicate greater willingness
 
 This dataset includes respondents who were dating, in a committed relationship, or married.
